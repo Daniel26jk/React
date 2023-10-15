@@ -1,36 +1,49 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 
 function LastProduct() {
+  const [lastProduct, setLastProduct] = useState(null);
+
+  useEffect(() => {
+   
+    fetch('http://localhost:3001/api/products') // siempre te equivocas en esto 
+      .then((response) => response.json())
+      .then((data) => {
+        if (data && data.products && data.products.length > 0) {
+          const ultimoProducto = data.products[data.products.length - 1];
+          setLastProduct(ultimoProducto);
+        }
+      })
+      .catch((error) => {
+        console.error('Error al cargar productos:', error);
+      });
+      // luego solo llama lo que quieres buscar de la api del back .imagen .nombre .descripcion
+  }, []);
+
   return (
-    <div className="col-lg-6 mb-4" style={{flex: "none", maxWidth: "100%" }} >
-         <div className="card shadow mb-4"style={{flex: "none", maxWidth: "100%" }}>
-      
-              <div className="card-header py-3">
-              <h6 className="m-0 font-weight-bold text-primary">Last product in Data Base</h6>
-             </div>
-              <div className="card-body">
-              <div className="text-center">
-               <img
+    <div className="col-lg-6 mb-4" style={{ maxWidth: "none", flex:"none" }}>
+      <div className="card shadow mb-4">
+        <div className="card-header py-3">
+          <h6 className="m-0 font-weight-bold text-primary">Last product in Data Base</h6>
+        </div>
+        <div className="card-body">
+          <div className="text-center">
+            <img
               className="img-fluid px-3 px-sm-4 mt-3 mb-4"
               style={{ width: '25rem' }}
-              src="assets/images/product_dummy.svg"
-              alt="image dummy"
-               />
-              </div>
-              <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, consequatur explicabo officia inventore
-            libero veritatis iure voluptate reiciendis a magnam, vitae, aperiam voluptatum non corporis quae dolorem culpa
-            exercitationem ratione?
+              src={lastProduct ? lastProduct.imagen : 'assets/images/product_dummy.svg'}
+              alt={lastProduct ? lastProduct.nombre : 'image dummy'}
+            />
+          </div>
+          <p>
+            {lastProduct ? lastProduct.descripcion : 'Cargando...'}
           </p>
           <a href="/" target="_blank" rel="noopener noreferrer">
             View product detail
           </a>
         </div>
       </div>
-      </div>
-    
+    </div>
   );
 }
 
 export default LastProduct;
-
