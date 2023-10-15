@@ -1,0 +1,21 @@
+[
+    {
+      "id": 1,
+      "usuario": "usuario1",
+      "gmail": "usuario1@gmail.com",
+      "nombre": "Nombre Usuario 1"
+    },
+    {
+      "id": 2,
+      "usuario": "usuario2",
+      "gmail": "usuario2@gmail.com",
+      "nombre": "Nombre Usuario 2"
+    },
+    {
+      "id": 3,
+      "usuario": "usuario3",
+      "gmail": "usuario3@gmail.com",
+      "nombre": "Nombre Usuario 3"
+    }
+  ]
+  
