@@ -37,7 +37,7 @@ function DashboardStats() {
   // aqui puedes poner mas apis
 
   return (
-    <div className="row">
+    <div className="row ml-1 mr-1">
       <div className="col-md-4 mb-4">
         <div className="card border-left-primary shadow h-100 py-2">
           <div className="card-body">
