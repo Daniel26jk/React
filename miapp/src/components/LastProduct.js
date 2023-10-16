@@ -5,7 +5,7 @@ function LastProduct() {
 
   useEffect(() => {
    
-    fetch('https://galante.onrender.com/api/products') 
+    fetch('http://localhost:3001/api/products') 
       .then((response) => response.json())
       .then((data) => {
         if (data && data.products && data.products.length > 0) {
@@ -34,12 +34,7 @@ function LastProduct() {
               alt={lastProduct ? lastProduct.nombre : 'image dummy'}
             />
           </div>
-          <p>
-            {lastProduct ? lastProduct.descripcion : 'Cargando...'}
-          </p>
-          <a href="/" target="_blank" rel="noopener noreferrer">
-            Ver detalle de producto
-          </a>
+         
         </div>
       </div>
     </div>

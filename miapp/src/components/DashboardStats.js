@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 
 function DashboardStats() {
   const [ultimoUsuario, setUltimoUsuario] = useState(null);
-  const [ultimoProducto, setUltimoProducto] = useState(null); // Aqui tienes que poner las variables para llamarlas en las apis 
+  const [ultimoProducto, setUltimoProducto] = useState(null);
+  const [totalPrecioProductos, setTotalPrecioProductos] = useState(0);
 
   useEffect(() => {
-    // Realiza una solicitud GET para cargar datos de usuarios desde tu API
-    fetch('https://galante.onrender.com/api/users')
+    fetch('http://localhost:3001/api/users')
       .then((response) => response.json())
       .then((data) => {
         if (data && data.count) {
@@ -20,10 +20,10 @@ function DashboardStats() {
   }, []);
 
   useEffect(() => {
-    fetch('https://galante.onrender.com/api/products')
+    fetch('http://localhost:3001/api/products')
       .then((response) => response.json())
       .then((data) => {
-        if (data && data.count) { // Verifica que 'count' existe en el objeto data
+        if (data && data.count) {
           const ultimoP = data.count;
           setUltimoProducto(ultimoP);
         }
@@ -31,9 +31,23 @@ function DashboardStats() {
       .catch((error) => {
         console.error('Error al cargar productos:', error);
       });
-  }, []); // Agrega los corchetes vacíos para que este efecto se ejecute solo una vez
+  }, []);
 
-  // aqui puedes poner mas apis
+  useEffect(() => {
+    fetch('http://localhost:3001/api/products')
+      .then((response) => response.json())
+      .then((data) => {
+        if (data && data.products && data.products.length > 0) {
+          // Calcula el precio total sumando los precios de todos los productos
+          //ParseFloat es para cambiar numeros en string a numeros enteros *ignora lo que no es numero "12dolares" traera 12
+          const total = data.products.reduce((acc, product) => acc + parseFloat(product.precio), 0);
+          setTotalPrecioProductos(total);
+        }
+      })
+      .catch((error) => {
+        console.error('Error al cargar productos:', error);
+      });
+  }, []);
 
   return (
     <div className="row ml-1 mr-1">
@@ -62,7 +76,7 @@ function DashboardStats() {
                 <div className="text-xs font-weight-bold text-success text-uppercase mb-1">
                   Total en productos
                 </div>
-                <div className="h5 mb-0 font-weight-bold text-gray-800">$546,456</div>
+                <div className="h5 mb-0 font-weight-bold text-gray-800">$ {totalPrecioProductos}</div>
               </div>
               <div className="col-auto">
                 <i className="fas fa-dollar-sign fa-2x text-gray-300"></i>

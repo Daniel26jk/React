@@ -5,7 +5,7 @@ function LastUsers() {
 
   useEffect(() => {
    
-    fetch('https://galante.onrender.com/api/users') 
+    fetch('http://localhost:3001/api/users') 
       .then((response) => response.json())
       .then((data) => {
         if (data && data.users && data.users.length > 0) {
