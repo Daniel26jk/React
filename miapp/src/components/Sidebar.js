@@ -9,7 +9,7 @@ function Sidebar() {
         <div className="sidebar-brand-icon">
           <i className="fas fa-chart-line"></i>
         </div>
-        <div className="sidebar-brand-text mx-3">Admin</div>
+        <div className="sidebar-brand-text mx-3">Galante</div>
       </a>
       {/* Divider */}
       <hr className="sidebar-divider my-0" />

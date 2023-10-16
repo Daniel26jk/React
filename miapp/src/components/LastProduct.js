@@ -5,7 +5,7 @@ function LastProduct() {
 
   useEffect(() => {
    
-    fetch('http://localhost:3001/api/products') // siempre te equivocas en esto 
+    fetch('https://galante.onrender.com/api/products') 
       .then((response) => response.json())
       .then((data) => {
         if (data && data.products && data.products.length > 0) {
@@ -23,7 +23,7 @@ function LastProduct() {
     <div className="col-lg-6 mb-4" style={{ maxWidth: "none", flex:"none" }}>
       <div className="card shadow mb-4">
         <div className="card-header py-3">
-          <h6 className="m-0 font-weight-bold text-primary">Last product in Data Base</h6>
+          <h6 className="m-0 font-weight-bold text-primary">Último producto agregado</h6>
         </div>
         <div className="card-body">
           <div className="text-center">
@@ -38,7 +38,7 @@ function LastProduct() {
             {lastProduct ? lastProduct.descripcion : 'Cargando...'}
           </p>
           <a href="/" target="_blank" rel="noopener noreferrer">
-            View product detail
+            Ver detalle de producto
           </a>
         </div>
       </div>

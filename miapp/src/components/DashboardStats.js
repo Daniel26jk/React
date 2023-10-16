@@ -6,11 +6,10 @@ function DashboardStats() {
 
   useEffect(() => {
     // Realiza una solicitud GET para cargar datos de usuarios desde tu API
-    fetch('http://localhost:3001/api/users') // Revisa esto bien
+    fetch('https://galante.onrender.com/api/users')
       .then((response) => response.json())
       .then((data) => {
         if (data && data.count) {
-          // Selecciona el último elemento del array de usuarios
           const ultimo = data.count;
           setUltimoUsuario(ultimo);
         }
@@ -21,7 +20,7 @@ function DashboardStats() {
   }, []);
 
   useEffect(() => {
-    fetch('http://localhost:3001/api/products')
+    fetch('https://galante.onrender.com/api/products')
       .then((response) => response.json())
       .then((data) => {
         if (data && data.count) { // Verifica que 'count' existe en el objeto data
@@ -44,7 +43,7 @@ function DashboardStats() {
             <div className="row no-gutters align-items-center">
               <div className="col mr-2">
                 <div className="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                  Products in Data Base
+                  Productos en Base de Datos
                 </div>
                 <div className="h5 mb-0 font-weight-bold text-gray-800">{ultimoProducto ? ultimoProducto : "Cargando..."}</div>
               </div>
@@ -61,7 +60,7 @@ function DashboardStats() {
             <div className="row no-gutters align-items-center">
               <div className="col mr-2">
                 <div className="text-xs font-weight-bold text-success text-uppercase mb-1">
-                  Amount in products
+                  Total en productos
                 </div>
                 <div className="h5 mb-0 font-weight-bold text-gray-800">$546,456</div>
               </div>
@@ -77,7 +76,7 @@ function DashboardStats() {
           <div className="card-body">
             <div className="row no-gutters align-items-center">
               <div className="col mr-2">
-                <div className="text-xs font-weight-bold text-warning text-uppercase mb-1">Users quantity</div>
+                <div className="text-xs font-weight-bold text-warning text-uppercase mb-1">Cantidad de usuarios</div>
                 <div className="h5 mb-0 font-weight-bold text-gray-800">
                   {ultimoUsuario ? ultimoUsuario : "Cargando..."}
                 </div>

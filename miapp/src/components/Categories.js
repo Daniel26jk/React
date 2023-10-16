@@ -5,7 +5,7 @@ function Categories() {
   const [categoryNames, setCategoryNames] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3001/api/categories')
+    fetch('https://galante.onrender.com/api/categories')
       .then((response) => response.json())
       .then((data) => {
         if (data && data.data && data.data.length > 0) {
@@ -23,7 +23,7 @@ function Categories() {
     <div className="col-lg-6 mb-4" style={{ maxWidth: "none", flex: "none" }}>
       <div className="card shadow mb-4">
         <div className="card-header py-3">
-          <h6 className="m-0 font-weight-bold text-primary">Categories in Data Base</h6>
+          <h6 className="m-0 font-weight-bold text-primary">Categorías en Base de Datos</h6>
         </div>
         <div className="card-body">
           <div className="row"> {/* se necesita la key=index sino salta un error  */}
