@@ -5,16 +5,16 @@ function LastUsers() {
 
   useEffect(() => {
    
-    fetch('http://localhost:3001/api/users') 
+    fetch('https://galante.onrender.com/api/users') 
       .then((response) => response.json())
       .then((data) => {
         if (data && data.users && data.users.length > 0) {
-          const ultimoProducto = data.users[data.findUser.length - 1];
-          setLastUsers(ultimoProducto);
+          const ultimoUsuario = data.users[data.users.length - 1];
+          setLastUsers(ultimoUsuario);
         }
       })
       .catch((error) => {
-        console.error('Error al cargar productos:', error);
+        console.error('Error al cargar Usuarios:', error);
       });
       // luego solo llama lo que quieres buscar de la api del back .imagen .nombre .descripcion
   }, []);
@@ -23,7 +23,7 @@ function LastUsers() {
     <div className="col-lg-6 mb-4" style={{ maxWidth: "none", flex:"none" }}>
       <div className="card shadow mb-4">
         <div className="card-header py-3">
-          <h6 className="m-0 font-weight-bold text-primary">Último producto agregado</h6>
+          <h6 className="m-0 font-weight-bold text-primary">Último usuario agregado</h6>
         </div>
         <div className="card-body">
           <div className="text-center">
@@ -38,7 +38,7 @@ function LastUsers() {
             {LastUsers ? LastUsers.email : 'Cargando...'}
           </p>
           <a href="/" target="_blank" rel="noopener noreferrer">
-            Ver detalle de producto
+            
           </a>
         </div>
       </div>
