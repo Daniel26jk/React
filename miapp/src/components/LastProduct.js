@@ -33,6 +33,12 @@ function LastProduct() {
               src={lastProduct ? lastProduct.imagen : 'assets/images/product_dummy.svg'}
               alt={lastProduct ? lastProduct.nombre : 'image dummy'}
             />
+             <p>
+            {lastProduct ? lastProduct.descripcion : 'Cargando...'}
+          </p>
+          <a href="/" target="_blank" rel="noopener noreferrer">
+            Ver detalle de producto
+          </a>
           </div>
          
         </div>
