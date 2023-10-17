@@ -30,12 +30,15 @@ function LastUsers() {
             <img
               className="img-fluid px-3 px-sm-4 mt-3 mb-4"
               style={{ width: '25rem' }}
-              src={LastUsers ? LastUsers.imagen : 'assets/images/product_dummy.svg'}
+              src={LastUsers ? LastUsers.imagen : 'https://cdn-icons-png.flaticon.com/512/5556/5556468.png'}
               alt={LastUsers ? LastUsers.nombre : 'image dummy'}
             />
           </div>
           <p>
-            {LastUsers ? LastUsers.email : 'Cargando...'}
+            Nombre: {LastUsers ? LastUsers.nombre : 'Cargando...'}
+          </p>
+          <p>
+            Email: {LastUsers ? LastUsers.email : 'No disponible'}
           </p>
           <a href="/" target="_blank" rel="noopener noreferrer">
             
