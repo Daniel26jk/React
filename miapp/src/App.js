@@ -27,8 +27,8 @@ function App() {
         <LastProduct></LastProduct>
         <Categories></Categories>
         <Especifica></Especifica>
-        <Link to="/Productos">Productos</Link>
-        <Link to="/Categorias">Categorias</Link>
+        <Link to="/Productos" className="ml-3 font-weight-bold">Productos</Link>
+        <Link to="/Categorias" className="ml-3 font-weight-bold mb-2">Categorias</Link>
         <div>
           <Routes>
           <Route exact path="/Productos" element={<Productos/>}></Route>

@@ -33,6 +33,7 @@ function Productos() {
                       className="card-img-top"
                       src={producto.imagen || 'assets/images/product_dummy.svg'}
                       alt={producto.nombre || 'image dummy'}
+                      style={{ height: '300px' }} // Ajusta la altura deseada
                     />
                     <div className="card-body">
                       <h5 className="card-title">{producto.nombre || 'Nombre no disponible'}</h5>
