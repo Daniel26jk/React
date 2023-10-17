@@ -6,7 +6,7 @@ function DashboardStats() {
   const [totalPrecioProductos, setTotalPrecioProductos] = useState(0);
 
   useEffect(() => {
-    fetch('http://localhost:3001/api/users')
+    fetch('https://galante.onrender.com/api/users')
       .then((response) => response.json())
       .then((data) => {
         if (data && data.count) {
@@ -20,7 +20,7 @@ function DashboardStats() {
   }, []);
 
   useEffect(() => {
-    fetch('http://localhost:3001/api/products')
+    fetch('https://galante.onrender.com/api/products')
       .then((response) => response.json())
       .then((data) => {
         if (data && data.count) {
@@ -34,7 +34,7 @@ function DashboardStats() {
   }, []);
 
   useEffect(() => {
-    fetch('http://localhost:3001/api/products')
+    fetch('https://galante.onrender.com/api/products')
       .then((response) => response.json())
       .then((data) => {
         if (data && data.products && data.products.length > 0) {

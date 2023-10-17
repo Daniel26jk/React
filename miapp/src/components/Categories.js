@@ -5,7 +5,7 @@ function Categories() {
   const [categoryNames, setCategoryNames] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3001/api/categories')
+    fetch('https://galante.onrender.com/api/categories')
       .then((response) => response.json())
       .then((data) => {
         if (data && data.data && data.data.length > 0) {

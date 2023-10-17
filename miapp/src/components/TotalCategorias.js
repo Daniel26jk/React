@@ -7,7 +7,7 @@ function Categorias() {
 
   useEffect(() => {
     // Cargar categorías
-    fetch('http://localhost:3001/api/categories')
+    fetch('https://galante.onrender.com/api/categories')
       .then((response) => response.json())
       .then((data) => {
         if (data && data.data && data.data.length > 0) {
@@ -19,7 +19,7 @@ function Categorias() {
       });
 
     // Cargar productos
-    fetch('http://localhost:3001/api/products')
+    fetch('https://galante.onrender.com/api/products')
       .then((response) => response.json())
       .then((data) => {
         if (data && data.products && data.products.length > 0) {

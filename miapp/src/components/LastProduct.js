@@ -5,7 +5,7 @@ function LastProduct() {
 
   useEffect(() => {
    
-    fetch('http://localhost:3001/api/products') 
+    fetch('https://galante.onrender.com/api/products') 
       .then((response) => response.json())
       .then((data) => {
         if (data && data.products && data.products.length > 0) {
